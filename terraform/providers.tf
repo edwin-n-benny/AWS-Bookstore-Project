@@ -5,7 +5,7 @@ terraform {
       version = "~> 5.69.0"
     }
   }
-  requied_version = "~> 1.9.7"
+  required_version = "~> 1.9.7"
 }
 
 provider "aws" {
@@ -13,8 +13,10 @@ provider "aws" {
   region  = var.region
 }
 
+/* AWS Certificate Manager requires all certificates in US East 1. That
+   is our only use of this alternate provider */
 provider "aws" {
   alias  = "acm"
-  region = "a-southeast-2"
+  region = "us-east-1"
 }
 
